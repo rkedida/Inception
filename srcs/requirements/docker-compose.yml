@@ -1,0 +1,45 @@
+version: "2"
+
+services:
+  mariadb:
+    build: /Users/rkedida/Documents/Inception/srcs/requirements/mariadb
+    image: mariadb
+    env_file:
+      - .env
+    volumes:
+      - /Users/rkedida/Documents/Inception/srcs/requirements/mariadb:/var/lib/mysql
+    networks:
+      - docker_network
+    restart: always
+
+  wordpress:
+    build: /Users/rkedida/Documents/Inception/srcs/requirements/wordpress
+    image: wordpress
+    env_file:
+      - .env
+    depends_on: 
+      - mariadb
+    volumes:
+      - /Users/rkedida/Documents/Inception/srcs/requirements/wordpress:/var/www/html/wordpress
+    networks:
+      - docker_network
+    restart: always
+
+  nginx:
+    build: /Users/rkedida/Documents/Inception/srcs/requirements/nginx
+    image: nginx
+    env_file:
+      - .env
+    ports:
+      - 443:443
+    depends_on: 
+      - wordpress
+    volumes:
+      - /Users/rkedida/Documents/Inception/srcs/requirements/wordpress:/var/www/html/wordpress
+    networks:
+      - docker_network
+    restart: always
+
+
+networks:
+  docker_network:
