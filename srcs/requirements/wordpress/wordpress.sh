@@ -8,8 +8,8 @@
 # done
 
 # Proceed with WordPress configuration
-mkdir -p /var/www/html/wordpress
-cd /var/www/html/wordpress
+mkdir -p /var/www/html/
+cd /var/www/html/
 
 if [ -f "/var/www/html/wordpress/wp-config.php" ]
 then
@@ -18,10 +18,10 @@ else
 	# Download and setup WordPress
 	wget -nc https://wordpress.org/latest.zip
 	unzip -o latest.zip && rm latest.zip
-	mv wordpress/ /var/www/html/
+	# mv wordpress/ /var/www/html/
 	# Remove the next line; it won't work inside the container
 	# mv /Users/robelkedida/Documents/Inception/srcs/requirements/ .
-	chown -R www-data:www-data .
+	chown -R www-data:www-data wordpress
 
 	# Configure WordPress using wp-cli
 	wp --allow-root config create --dbhost=mariadb --dbname=$WP_DB --dbuser=$WP_USER --dbpass=$WP_PASS --locale=en_US 
