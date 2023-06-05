@@ -7,7 +7,11 @@ RUN apt-get update && \
 	apt-get install -y \
 		php-fpm \
 		php-mysql \
-		wget unzip
+		wget unzip \
+		curl \
+		&& curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+        && chmod +x wp-cli.phar \
+        && mv wp-cli.phar /usr/local/bin/wp
 
 # Copy the installation script
 COPY wordpress.sh /usr/local/bin/

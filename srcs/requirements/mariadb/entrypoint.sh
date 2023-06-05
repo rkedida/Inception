@@ -30,4 +30,5 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'username'@'%' IDENTIFI
 mysql -u root -e "FLUSH PRIVILEGES;"
 
 # Keep MariaDB running in the foreground
-wait
+# wait
+fg
