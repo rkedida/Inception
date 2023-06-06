@@ -30,7 +30,7 @@ COPY entrypoint.sh /entrypoint.sh
 # Set permissions for the entrypoint script
 RUN chmod +x /entrypoint.sh
 RUN mkdir /var/run/mysqld \
-    && chown -R mysql:mysql /var/run/mysqld \
+    && chown -R www-data:www-data /var/run/mysqld \
 	&& chmod 777 /var/run/mysqld
 
 

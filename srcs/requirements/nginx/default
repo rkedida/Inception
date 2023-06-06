@@ -2,14 +2,14 @@ server {
 		listen 443 ssl;
 		listen [::]:443 ssl;
 
-		server_name rkedida.42.fr
+		server_name rkedida.42.fr;
 
 		ssl_protocols   TLSv1.2 TLSv1.3;
 		ssl_prefer_server_ciphers off;
 		ssl_certificate /ssl/nginx.crt;
 		ssl_certificate_key     /ssl/nginx.key;
 
-		root /var/www/html;
+		root /var/www/html/wordpress;
 
 		# Add index.php to the list if you are using PHP
 		index index.php;
@@ -22,6 +22,6 @@ server {
 		
 		location ~ \.php$ {
 			  include snippets/fastcgi-php.conf;
-			  fastcgi_pass 172.17.0.1:9000;
+			  fastcgi_pass wordpress:9000;
 		}
 }
