@@ -11,8 +11,8 @@ RUN apt-get update && \
 		mariadb-client \
 		curl \
 		&& curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-        && chmod +x wp-cli.phar \
-        && mv wp-cli.phar /usr/local/bin/wp
+		&& chmod +x wp-cli.phar \
+		&& mv wp-cli.phar /usr/local/bin/wp
 
 # Copy the installation script
 COPY wordpress.sh /usr/local/bin/
@@ -22,11 +22,9 @@ COPY www.conf /etc/php/7.3/fpm/pool.d/
 # Make the installation script executable
 RUN chmod +x /usr/local/bin/wordpress.sh
 
-
 RUN mkdir -p /run/php/
 # Set the working directory
 WORKDIR /var/www/html
-
 
 # Expose port 9000 for PHP-FPM
 EXPOSE 9000

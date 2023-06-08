@@ -3,8 +3,8 @@ FROM debian:buster-slim
 
 # Update the system and install MariaDB server
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y mariadb-server && \
+	apt-get upgrade -y && \
+	apt-get install -y mariadb-server && \
 	apt-get install -y expect
 
 # Remove apt cache to reduce image size
