@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rkedida <rkedida@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/08 22:44:30 by rkedida           #+#    #+#              #
+#    Updated: 2023/06/08 22:44:32 by rkedida          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Use the penultimate version of the Debian image from DockerHub
 FROM debian:buster-slim 
 
