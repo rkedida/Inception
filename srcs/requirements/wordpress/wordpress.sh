@@ -20,10 +20,8 @@ else
 	wp --allow-root config create --dbhost=mariadb --dbname=$MY_SQL_DB --dbuser=$WP_DB_USER --dbpass=$WP_PASS --locale=en_US 
 	# Replace '<your-site-url>' with your actual site URL
 	wp --allow-root core install --url=rkedida.42.fr --title=NOT_A_WEBSITE --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL
+	wp --allow-root user create Balu Balu@test.com --user_pass=$WP_SECOND_PASS --porcelain
 fi
 
 # Start PHP-FPM
 php-fpm7.3 -F
-
-# Execute any commands passed to the script
-exec $@

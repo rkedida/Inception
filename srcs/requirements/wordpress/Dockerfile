@@ -9,6 +9,7 @@ RUN apt-get update && \
 		php-mysql \
 		wget unzip \
 		mariadb-client \
+		sendmail \
 		curl \
 		&& curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 		&& chmod +x wp-cli.phar \
