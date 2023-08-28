@@ -43,8 +43,7 @@ Remember, for security reasons, the .env file should not be version controlled.
 Run the following command to build the Docker images and start the containers using Docker Compose.
 
 ```sh
-docker-compose up --build
-docker-compose up
+make run
 ```
 
 ## Containers
